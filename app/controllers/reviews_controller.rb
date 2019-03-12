@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+# require 'httparty'
 
 class ReviewsController < OpenReadController
   before_action :set_review, only: %i[update destroy]
@@ -41,12 +42,17 @@ class ReviewsController < OpenReadController
     @review.destroy
   end
 
+  def yelp_search
+    search_string = params.require(:search)
+    render json: HTTParty.get("https://api.yelp.com/v3/businesses/search?term=Ramen&location=#{search_string}", :headers => { "Authorization" => "Bearer #{ENV["YELP_KEY"]}"})
+  end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
-    def set_review
-      @review = current_user.reviews.find(params[:id])
-    end
+  def set_review
+    @review = current_user.reviews.find(params[:id])
+  end
 
     # Only allow a trusted parameter "white list" through.
     def review_params
