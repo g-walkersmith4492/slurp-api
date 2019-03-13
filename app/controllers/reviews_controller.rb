@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-# require 'httparty'
 
 class ReviewsController < OpenReadController
   before_action :set_review, only: %i[update destroy]
