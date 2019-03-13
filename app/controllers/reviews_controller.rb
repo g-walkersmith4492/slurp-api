@@ -43,7 +43,20 @@ class ReviewsController < OpenReadController
 
   def yelp_search
     search_string = params.require(:search)
-    render json: HTTParty.get("https://api.yelp.com/v3/businesses/search?term=Ramen&location=#{search_string}", :headers => { "Authorization" => "Bearer #{ENV["YELP_KEY"]}"})
+    render json: HTTParty.get("https://api.yelp.com/v3/businesses/search?limit=50&term=Ramen&location=#{search_string}", :headers => { "Authorization" => "Bearer #{ENV["YELP_KEY"]}"})
+  end
+
+  def yelp_search_specs
+    search_string = params.require(:search)
+    search_specs = params.require(:specs)
+    puts(search_specs)
+    render json: HTTParty.get("https://api.yelp.com/v3/businesses/search?limit=50&term=Ramen&location=#{search_string}&sort_by=#{search_specs}", :headers => { "Authorization" => "Bearer #{ENV["YELP_KEY"]}"})
+  end
+
+  def yelp_search_price
+    search_string = params.require(:search)
+    search_num = params.require(:priceNum)
+    render json: HTTParty.get("https://api.yelp.com/v3/businesses/search?limit=50&term=Ramen&location=#{search_string}&price=#{search_num}", :headers => { "Authorization" => "Bearer #{ENV["YELP_KEY"]}"})
   end
 
   private

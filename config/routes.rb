@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   delete '/sign-out' => 'users#signout'
   patch '/change-password' => 'users#changepw'
   post '/yelp-search' => 'reviews#yelp_search'
+  post '/yelp-search-specs' => 'reviews#yelp_search_specs'
+    post '/yelp-search-price' => 'reviews#yelp_search_price'
 end
