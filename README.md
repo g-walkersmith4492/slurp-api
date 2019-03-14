@@ -75,11 +75,11 @@ Below are some step by step instructions to install this front-end repository:
 ### Reviews
 | Verb   | URI Pattern            | Controller#Action |
 |--------|------------------------|-------------------|
-| POST   | `/reviews`               | `Reviews#create`    |
-| GET    | `/reviews`               | `Reviews#index`     |
-| GET    | `/reviews/:id`           | `Reviews#show`     |
-| PATCH  | `/reviews/:id`           | `Reviews#update`    |
-| DELETE | `/reviews/:id`           | `Reviews#destroy`   |
+| POST   | `/reviews`               | `reviews#create`    |
+| GET    | `/reviews`               | `reviews#index`     |
+| GET    | `/reviews/:id`           | `reviews#show`     |
+| PATCH  | `/reviews/:id`           | `reviews#update`    |
+| DELETE | `/reviews/:id`           | `reviews#destroy`   |
 | POST   | `/yelp-search`       | `reviews#yelp_search` |
 | POST   | `/yelp-search-specs`   | `reviews#yelp_search_specs` |
 | POST | `/yelp-search-price`   | `reviews#yelp_search_price` |
